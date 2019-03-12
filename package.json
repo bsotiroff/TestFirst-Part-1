@@ -18,5 +18,11 @@
   "homepage": "https://github.com/FullstackAcademy/TestFirst-Part-1#readme",
   "devDependencies": {
     "testem": "^2.14.0"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-fullstack": "^6.0.0",
+    "eslint-plugin-react": "^7.12.4"
   }
 }

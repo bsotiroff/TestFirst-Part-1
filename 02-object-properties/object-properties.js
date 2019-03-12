@@ -36,12 +36,15 @@ const setPropsOnFunc = func => {
   return 'I am a function object, all functions are objects! Function can have their own properties too!';
 };
 
-const shallowCopy = (...objs) => {};
-
-let returnObj = objs[0];
-returnObj + objs[1];
-
-var dog = {
-  bark: function() {},
-};
-console.log(shallowCopy(hockeyTeam, baseballTeam));
+function shallowCopy(target, source) {
+  if (Array.isArray(target)) {
+    let returnArray = [...target, ...source];
+    return returnArray;
+  } else if (typeof target === 'object') {
+    Object.keys(source).forEach(function(key) {
+      target[key] = source[key];
+    });
+    console.log(target);
+    return target;
+  }
+}

@@ -67,7 +67,6 @@ function paramify(obj) {
   keys.sort();
   for (let i = 0; i < keys.length; i++) {
     let elem = keys[i];
-    console.log(elem);
     outputStr += `&${elem}=${obj[elem]}`;
   }
 

@@ -12,5 +12,3 @@ var dog = {
     console.log('ruff ruff!');
   },
 };
-
-console.log(dog.name);

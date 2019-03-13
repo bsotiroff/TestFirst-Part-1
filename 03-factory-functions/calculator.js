@@ -3,42 +3,61 @@
 function createCalculator() {
   calculator = {
     total: 0,
-    value: function() {
+    value() {
       return this.total;
     },
-    add: function(num) {
+    add(num) {
       this.total += num;
     },
-    subtract: function(num) {
+    subtract(num) {
       this.total -= num;
     },
-    clear: function() {
+    clear() {
       this.total = 0;
     },
   };
   return calculator;
 }
 
-createCalculator.prototype.square = function() {
-  this.total ** 2;
+//addSquareMethod
+//adds the square method to an array of Calculator instances
+
+const addSquareMethod = arr => {
+  let returnArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    let updatedInstance = arr[i];
+
+    updatedInstance.square = function() {
+      this.total = Math.pow(this.total, 2);
+    };
+    returnArray.push(updatedInstance);
+  }
+  return returnArray;
+};
+
+let instance = createCalculator();
+let arr1 = [instance, instance, instance];
+
+// humanCalculator
+let humanCalcProto = {
+  add(num) {
+    this.total = this.total + num;
+  },
+  subtract(num) {
+    this.total = this.total - num;
+  },
+  value() {
+    return this.total;
+  },
+  clear() {
+    this.total = -10;
+  },
 };
 
 const createHumanCalculator = () => {
-  this.total = -10;
+  let humanCalculatorObj = Object.create(humanCalcProto);
+  humanCalculatorObj.total = -10;
+  return humanCalculatorObj;
 };
 
-createHumanCalculator.prototype.add = function(num) {
-  this.total + num;
-};
-
-createHumanCalculator.prototype.subtract = function(num) {
-  this.total - num;
-};
-
-createHumanCalculator.prototype.value = function() {
-  return this.total;
-};
-
-createHumanCalculator.prototype.clear = function() {
-  this.total = -10;
-};
+let humanCalculator = createHumanCalculator();

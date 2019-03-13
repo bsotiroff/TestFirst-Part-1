@@ -85,3 +85,21 @@ function paramifyObjectKeys(obj) {
   }
   return outputStr.slice(1);
 }
+
+const sort = arr => {
+  let unsortedArr = arr;
+  let sortedArr = [];
+
+  // let min = Math.min(...arr);
+  while (unsortedArr.length > 0) {
+    let min = Math.min(...unsortedArr);
+    // console.log(min);
+    let j = unsortedArr.indexOf(min);
+    // console.log(j);
+    let nextMin = unsortedArr.splice(j, 1)[0];
+    sortedArr.push(nextMin);
+    // console.log(sortedArr);
+  }
+
+  return sortedArr;
+};

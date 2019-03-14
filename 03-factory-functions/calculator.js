@@ -23,20 +23,26 @@ function createCalculator() {
 //adds the square method to an array of Calculator instances
 
 const addSquareMethod = arr => {
-  let returnArray = [];
+  let updatedArray = [];
   for (let i = 0; i < arr.length; i++) {
     let updatedInstance = arr[i];
 
     updatedInstance.square = function() {
-      this.total = Math.pow(this.total, 2);
+      return Math.pow(this.total, 2);
     };
-    returnArray.push(updatedInstance);
+    updatedArray.push(updatedInstance);
   }
-  return returnArray;
+  return updatedArray;
 };
 
-let instance = createCalculator();
-let arr1 = [instance, instance, instance];
+// const addSquareMethod = arr => {
+//   return arr.map(inst => {
+//     inst.square = function() {
+//       return Math.pow(this.total, 2);
+//     };
+//     return inst;
+//   });
+// };
 
 // humanCalculator
 let humanCalcProto = {
@@ -61,3 +67,6 @@ const createHumanCalculator = () => {
 };
 
 let humanCalculator = createHumanCalculator();
+
+let instance = createCalculator();
+let arr1 = [humanCalculator, humanCalculator, humanCalculator];

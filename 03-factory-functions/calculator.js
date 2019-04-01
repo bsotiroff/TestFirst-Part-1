@@ -19,6 +19,7 @@ function createCalculator() {
   return calculator;
 }
 
+let instance = createCalculator();
 //addSquareMethod
 //adds the square method to an array of Calculator instances
 
@@ -67,6 +68,3 @@ const createHumanCalculator = () => {
 };
 
 let humanCalculator = createHumanCalculator();
-
-let instance = createCalculator();
-let arr1 = [humanCalculator, humanCalculator, humanCalculator];

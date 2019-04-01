@@ -38,20 +38,18 @@ const join = (arr, separator = '') => {
 
 function gridGenerator(num) {
   let grid = '';
-
-  for (let i = 0; i < num * num; i++) {
+  for (let i = 0; i < num; i++) {
     //if i is even, print #
-    if (i % 2 === 0) {
-      grid += '#';
-    } else {
-      //if i is odd, print ' '
-      grid += ' ';
+    for (let j = 0; j < num; j++) {
+      if ((i + j) % 2 === 0) {
+        grid += '#';
+      } else {
+        grid += ' ';
+      }
     }
-    if ((i + 1) % num === 0) {
-      //create a space every 'num' characters
-      grid += '\n';
-    }
+    grid += '\n';
   }
+
   return grid;
 }
 
@@ -87,8 +85,20 @@ function paramifyObjectKeys(obj) {
 }
 
 const sort = arr => {
-  let unsortedArr = arr;
+  // let unsortedArr = arr;
   let sortedArr = [];
+
+  if (typeof arr[0] === 'string') {
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    let unsortedArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      let elem = arr[i];
+      debugger;
+      unsortedArr.push(
+        alphabet.indexOf(elem[0]) + alphabet.indexOf(elem[1]) / 10
+      );
+    }
+  }
 
   // let min = Math.min(...arr);
   while (unsortedArr.length > 0) {
@@ -103,3 +113,5 @@ const sort = arr => {
 
   return sortedArr;
 };
+
+sort()

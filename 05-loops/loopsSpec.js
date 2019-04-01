@@ -158,6 +158,7 @@ describe('looping over objects', () => {
         paramify({
           height: 74,
           width: 12,
+      
         })
       ).toEqual('height=74&width=12');
     });
